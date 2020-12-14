@@ -5,6 +5,9 @@ using UnityEngine;
 public class MapGenerator : MonoBehaviour
 {
     public GameObject tilePrefab;
+    public GameObject tilePrefab2;
+    public GameObject tilePrefab3;
+    public GameObject tilePrefab4;
 
     int mapWidth = 10;
     int mapHeight = 0;
