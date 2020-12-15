@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class MapGenerator : MonoBehaviour
 {
-    public GameObject tilePrefab;
-    public GameObject tilePrefab2;
-    public GameObject tilePrefab3;
-    public GameObject tilePrefab4;
+    public List<GameObject> roomPrefab;
 
     int mapWidth = 10;
     int mapHeight = 0;
@@ -19,14 +16,17 @@ public class MapGenerator : MonoBehaviour
     {
         CreateQuadTileMap();
     }
-
+    public GameObject RandomRoomPrefab()
+    {
+        return roomPrefab[UnityEngine.Random.Range(0, roomPrefab.Count)];
+    }
     void CreateQuadTileMap()
     {
         for (int x = 0; x <= mapWidth; x++)
         {
             for (int z = 0; z <= mapHeight; z++)
             {
-                GameObject TempGO = Instantiate(tilePrefab);
+                GameObject TempGO = Instantiate(RandomRoomPrefab()) as GameObject;
                 TempGO.transform.position = new Vector3(x * tileOffset, 0, z * tileOffset);
 
             }

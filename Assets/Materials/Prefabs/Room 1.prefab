@@ -594,7 +594,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1413914711449567954}
   m_Layer: 8
-  m_Name: Room
+  m_Name: Room 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1436,7 +1436,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 9
   m_Type: 2
-  m_Color: {r: 0.7735849, g: 0.62032753, b: 0.62032753, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_Intensity: 1
   m_Range: 65
   m_SpotAngle: 30
