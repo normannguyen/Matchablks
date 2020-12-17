@@ -3,22 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Score : MonoBehaviour
+public class TagObject : MonoBehaviour
 {
     public Text text;
-    public int currentScore =0;
-    public int maxScore =4;
+    public Score score;
+    public int tries;
     // Start is called before the first frame update
     void Start()
     {
         text = GetComponent<Text>();
-        text = GameObject.Find("ScoreTextViewer").GetComponent<Text>();
+        score = GetComponent<Score>();
+        score = GameObject.Find("ScoreTextViewer").GetComponent<Score>();
+        text = GameObject.Find("MainTextViewer").GetComponent<Text>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        text.text = currentScore + "/" + maxScore;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -26,6 +27,7 @@ public class Score : MonoBehaviour
         if (other.gameObject.tag == "Science")
         {
             text.text = "Correct!";
+            score.currentScore++;
         }
         else if (other.gameObject.tag == "Player")
         {
@@ -35,6 +37,12 @@ public class Score : MonoBehaviour
         {
             print("Sorry, wrong block");
             text.text = "Sorry wrong block";
+            tries++;
+            if (tries > 4)
+            {
+                text.text = "Seriously, I'm begging you to add the block please?";
+            }
         }
     }
 }
+

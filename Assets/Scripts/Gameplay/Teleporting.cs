@@ -8,7 +8,11 @@ public class Teleporting : MonoBehaviour
     public GameObject thePlayer;
     private void OnTriggerEnter(Collider other)
     {
-        thePlayer.transform.position = teleportTarget.transform.position;
-        Debug.Log("Working");
+        if (other.gameObject.tag == "Player")
+        {
+            thePlayer.transform.position = teleportTarget.transform.position;
+            Debug.Log("Working");
+        }
+            
     }
 }

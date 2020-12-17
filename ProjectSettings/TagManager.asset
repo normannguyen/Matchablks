@@ -8,6 +8,10 @@ TagManager:
   - Teleport2
   - Destination
   - Object
+  - Science
+  - Math
+  - SocialStudies
+  - LanguageArts
   layers:
   - Default
   - TransparentFX
