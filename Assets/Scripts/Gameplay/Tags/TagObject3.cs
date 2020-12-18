@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TagObject : MonoBehaviour
+public class TagObject3 : MonoBehaviour
 {
     public Text text;
     public Score score;
+    public GameObject wall;
+    public List <GameObject> walls;
     public int tries;
     // Start is called before the first frame update
     void Start()
@@ -24,9 +26,10 @@ public class TagObject : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Science")
+        if (other.gameObject.tag == "LanguageArts")
         {
             text.text = "Correct!";
+            wall.SetActive(true);
             score.currentScore++;
         }
         else if (other.gameObject.tag == "Player")

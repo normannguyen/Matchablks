@@ -5,36 +5,37 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
+    public Text score;
     public Text text;
     public int currentScore =0;
     public int maxScore =4;
+    public GameObject teleporters;
+    public GameObject teleportSpawn;
+    public GameObject exitPortal;
+    public GameObject exitSpawn;
     // Start is called before the first frame update
     void Start()
     {
+        score = GetComponent<Text>();
         text = GetComponent<Text>();
-        text = GameObject.Find("ScoreTextViewer").GetComponent<Text>();
+        text = GameObject.Find("MainTextViewer").GetComponent<Text>();
+        score = GameObject.Find("ScoreTextViewer").GetComponent<Text>();
+        teleporters.SetActive(false);
+        teleportSpawn.SetActive(false);
+        exitPortal.SetActive(false);
+        exitSpawn.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        text.text = currentScore + "/" + maxScore;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Science")
+        score.text = currentScore + "/" + maxScore;
+        if(currentScore >= maxScore)
         {
-            text.text = "Correct!";
+            teleporters.SetActive(true);
+            teleportSpawn.SetActive(true);
+            currentScore = 0;
         }
-        else if (other.gameObject.tag == "Player")
-        {
-            text.text = "Seriously, adding yourself?";
-        }
-        else
-        {
-            print("Sorry, wrong block");
-            text.text = "Sorry wrong block";
-        }
+        
     }
 }

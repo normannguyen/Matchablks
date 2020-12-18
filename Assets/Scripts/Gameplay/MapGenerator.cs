@@ -6,8 +6,8 @@ public class MapGenerator : MonoBehaviour
 {
     public List<GameObject> roomPrefab;
 
-    int mapWidth = 10;
-    int mapHeight = 0;
+    public int mapWidth = 10;
+    public int mapHeight = 0;
 
     public float tileOffset = 17.05f;
 
